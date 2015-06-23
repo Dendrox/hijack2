@@ -2,26 +2,25 @@
 <html> 
 <head> 
 	<title>Hijack</title> 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head> 
 <body>
 	<div id="menu-bar">
    	     <div class="menu-option"  id="hijack" onmouseover="var appview2 = new app.AppView({el:$('#app')});">HIJACK</div>
    	     <div class="menu-option"   id="offers" onmouseover="var offerview = new app.OfferView({el:$('#app')});">OFFERS
-            <img id="offer-ball" src="img/offer-ball.png"></div>
+            <img id="offer-ball" src="assets/img/offer-ball.png"></div>
    	     <div class="menu-option"  id="news" onmouseover="var newsview = new app.NewsView({el:$('#app')});">NEWS</div>
    	     <div class="menu-option" id="events" onmouseover="var eventsview = new app.EventsView({el:$('#app')});">EVENTS</div>
    	     
         </div>
     <div id="app"></div> 
-	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script src="js/WifiInfoPlugin.js"></script>
-    <script type="text/javascript" src="js/iscroll.js"></script> 
-	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script> 
-	<script type="text/javascript" src="js/underscore-min.js"></script> 
-	<script type="text/javascript" src="js/backbone.js"></script> 
     
-	<script type="text/javascript" src="js/function.js"></script> 
+    <script type="text/javascript" src="assets/js/iscroll.js"></script> 
+	<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script> 
+	<script type="text/javascript" src="assets/js/underscore-min.js"></script> 
+	<script type="text/javascript" src="assets/js/backbone.js"></script> 
+    
+	<script type="text/javascript" src="assets/js/function.js"></script> 
 	
 	<script type="text/template" id="splash-screen">
         
@@ -31,14 +30,14 @@
          <div id="socket"></div>
          <div id="hb2" class="touchlight"></div>
          <div id="scan"></div><div id="scan2"></div>
-         <img id="static-ball" src="img/hb_03.png">
-         <img class="draggable"id="test" src="img/hb_03.png">
+         <img id="static-ball" src="assets/img/hb_03.png">
+         <img class="draggable"id="test" src="assets/img/hb_03.png">
          <div id="search-for"><h2>Search For Wifi Signals</h2></div>
          <div id="arrow-down">
-          <img src="img/down2.png">
+          <img src="assets/img/down2.png">
          </div>
         
-         <img id="triangle" src="img/triangle6.png"> 
+         <img id="triangle" src="assets/img/triangle6.png"> 
 
          <div id="searching-for"><h2>Searching...</h2></div>
 
@@ -53,11 +52,11 @@
         <div id="pointer"></div>
         <div id="offer-message"><h2>GET DOWN TO THE SOBER LANE IN THE NEXT 10 MINUTES AND WE WILL GIVE YOU A FREE PIZZA!!!</h2>
         </div>
-        <img  id="burger-king" src="img/burgerking.png"/>
+        <img  id="burger-king" src="assets/img/burgerking.png"/>
         <div id="hurry"><h2>HURRY, TIME IS RUNNING OUT!</h2></div>
         <div id="timer-container">
         
-        <div id="timer"><img id="time-ball" src="img/hb_03.png"/></div>
+        <div id="timer"><img id="time-ball" src="assets/img/hb_03.png"/></div>
         <div id="empty"></div>
         </div>
 
@@ -67,8 +66,8 @@
         <div id="red-screen">
             <h2>OOPS...</h2>
             <h2>SORRY, YOUR OUT OF TIME!</h2>
-             <img id="test" src="img/hb_03.png">
-             <img id="triangle" src="img/triangle6.png">
+             <img id="test" src="assets/img/hb_03.png">
+             <img id="triangle" src="assets/img/triangle6.png">
         </div>
     </script>
 
@@ -78,18 +77,18 @@
             <h2>YOU MADE IT!</h2>
             <button id="show-offer">Go To Offers</button>
         </div>
-             <img id="test" src="img/hb_03.png">
-             <img id="triangle" src="img/triangle6.png">
+             <img id="test" src="assets/img/hb_03.png">
+             <img id="triangle" src="assets/img/triangle6.png">
         
     </script>
 
     <script type="text/template" id="offers-template">
     <div id="new-offer">
-        <img  id="burger-king-offer" src="img/burgerking.png"/>
+        <img  id="burger-king-offer" src="assets/img/burgerking.png"/>
     </div>
         <div id="pointer"></div>    
-        <img id="test" src="img/hb_03.png">
-        <img id="triangle" src="img/triangle6.png">
+        <img id="test" src="assets/img/hb_03.png">
+        <img id="triangle" src="assets/img/triangle6.png">
 
     </script>
 
@@ -99,14 +98,14 @@
         <div id="scroll">
         <div id="wrapper">
             <div class="news-article">
-                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <img class="news-pic" src="assets/img/JamaicaMonthSoberLane.jpg"/>
                 <div class="text-box">
                     <h3>JAMAICA MONTH - ALL FEBURARY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
                 </div>
             </div>
             <div class="news-article">
-                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <img class="news-pic" src="assets/img/Mexican-Month.jpg"/>
                 <div class="text-box">
                     <h3>MEXICAN MONTH - JULY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
@@ -114,7 +113,7 @@
             </div>
             <div class="news-article">
 
-                <img class="news-pic" src="img/decfest.jpg"/>
+                <img class="news-pic" src="assets/img/decfest.jpg"/>
                 <div class="text-box">
                     <h3>DECADES FESTIVAL - AUGUST</h3>
                     <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
@@ -122,14 +121,14 @@
 
             </div>
             <div class="news-article">
-                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <img class="news-pic" src="assets/img/JamaicaMonthSoberLane.jpg"/>
                 <div class="text-box">
                     <h3>JAMAICA MONTH - ALL FEBURARY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
                 </div>
             </div>
             <div class="news-article">
-                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <img class="news-pic" src="assets/img/Mexican-Month.jpg"/>
                 <div class="text-box">
                     <h3>MEXICAN MONTH - JULY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
@@ -137,7 +136,7 @@
             </div>
             <div class="news-article">
 
-                <img class="news-pic" src="img/decfest.jpg"/>
+                <img class="news-pic" src="assets/img/decfest.jpg"/>
                 <div class="text-box">
                     <h3>DECADES FESTIVAL - AUGUST</h3>
                     <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
@@ -157,14 +156,14 @@
         <div id="scroll">
         <div id="wrapper">
             <div class="news-article">
-                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <img class="news-pic" src="assets/img/JamaicaMonthSoberLane.jpg"/>
                 <div class="text-box">
                     <h3>JAMAICA MONTH - ALL FEBURARY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
                 </div>
             </div>
             <div class="news-article">
-                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <img class="news-pic" src="assets/img/Mexican-Month.jpg"/>
                 <div class="text-box">
                     <h3>MEXICAN MONTH - JULY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
@@ -172,7 +171,7 @@
             </div>
             <div class="news-article">
 
-                <img class="news-pic" src="img/decfest.jpg"/>
+                <img class="news-pic" src="assets/img/decfest.jpg"/>
                 <div class="text-box">
                     <h3>DECADES FESTIVAL - AUGUST</h3>
                     <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
@@ -180,14 +179,14 @@
 
             </div>
             <div class="news-article">
-                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <img class="news-pic" src="assets/img/JamaicaMonthSoberLane.jpg"/>
                 <div class="text-box">
                     <h3>JAMAICA MONTH - ALL FEBURARY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
                 </div>
             </div>
             <div class="news-article">
-                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <img class="news-pic" src="assets/img/Mexican-Month.jpg"/>
                 <div class="text-box">
                     <h3>MEXICAN MONTH - JULY</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
@@ -195,7 +194,7 @@
             </div>
             <div class="news-article">
 
-                <img class="news-pic" src="img/decfest.jpg"/>
+                <img class="news-pic" src="assets/img/decfest.jpg"/>
                 <div class="text-box">
                     <h3>DECADES FESTIVAL - AUGUST</h3>
                     <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
