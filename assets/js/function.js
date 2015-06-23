@@ -1,7 +1,4 @@
-//Assign the BSSIDs
-var mcdonalds_wifi = "38:60:77:7d:39:0b" 
-var burgerking_wifi = "38:60:77:7d:39:0b" 
-var sober_wifi = "80:c6:ab:3a:a6:5d"
+
 
 
 var moveMe = function(e) {
@@ -83,7 +80,7 @@ function scanner(scan){
          $('#alert-message').css({'display':'block'});
          $('#pulse').css({'display':'block'});
          $('#hb2').css({'display':'block'});
-         findWifi();  
+         Pulse();  
                        
         
 
@@ -93,25 +90,6 @@ function scanner(scan){
     }
  
 
-    function findWifi(x){
-      window.plugins.WifiInfo.get(function(wifis){ 
-        for(i=0;i<wifis.available.length; i++){
-         x = wifis.available[i].BSSID; 
-         
-         if((x === mcdonalds_wifi)||(x === burgerking_wifi)){
-          Pulse();
-         $('#scan').css({'display':'none'});
-         $('#scan2').css({'display':'none'});
-
-    }
-    
-
-       }  
-     
-      
-         });
-    
-  };
 
   /*function findWifi2(){
      window.plugins.WifiInfo.get(function(wifis){ 
