@@ -1,0 +1,424 @@
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+	<title>Hijack</title> 
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head> 
+<body>
+	<div id="menu-bar">
+   	     <div class="menu-option"  id="hijack" onmouseover="var appview2 = new app.AppView({el:$('#app')});">HIJACK</div>
+   	     <div class="menu-option"   id="offers" onmouseover="var offerview = new app.OfferView({el:$('#app')});">OFFERS
+            <img id="offer-ball" src="img/offer-ball.png"></div>
+   	     <div class="menu-option"  id="news" onmouseover="var newsview = new app.NewsView({el:$('#app')});">NEWS</div>
+   	     <div class="menu-option" id="events" onmouseover="var eventsview = new app.EventsView({el:$('#app')});">EVENTS</div>
+   	     
+        </div>
+    <div id="app"></div> 
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script src="js/WifiInfoPlugin.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script> 
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script> 
+	<script type="text/javascript" src="js/underscore-min.js"></script> 
+	<script type="text/javascript" src="js/backbone.js"></script> 
+    
+	<script type="text/javascript" src="js/function.js"></script> 
+	
+	<script type="text/template" id="splash-screen">
+        
+        <div id="pointer"></div>
+        
+        <div class="page" id="page2">
+         <div id="socket"></div>
+         <div id="hb2" class="touchlight"></div>
+         <div id="scan"></div><div id="scan2"></div>
+         <img id="static-ball" src="img/hb_03.png">
+         <img class="draggable"id="test" src="img/hb_03.png">
+         <div id="search-for"><h2>Search For Wifi Signals</h2></div>
+         <div id="arrow-down">
+          <img src="img/down2.png">
+         </div>
+        
+         <img id="triangle" src="img/triangle6.png"> 
+
+         <div id="searching-for"><h2>Searching...</h2></div>
+
+         <div id="alert-message"><h2>HIJACK HAS AN OFFER FOR YOU!!!</h2>
+        </div>
+        <div id="pulse"></div>
+        </div>
+     		
+	</script>
+
+    <script type="text/template" id="my-offers">
+        <div id="pointer"></div>
+        <div id="offer-message"><h2>GET DOWN TO THE SOBER LANE IN THE NEXT 10 MINUTES AND WE WILL GIVE YOU A FREE PIZZA!!!</h2>
+        </div>
+        <img  id="burger-king" src="img/burgerking.png"/>
+        <div id="hurry"><h2>HURRY, TIME IS RUNNING OUT!</h2></div>
+        <div id="timer-container">
+        
+        <div id="timer"><img id="time-ball" src="img/hb_03.png"/></div>
+        <div id="empty"></div>
+        </div>
+
+    </script>
+
+    <script type="text/template" id="timeout-template">
+        <div id="red-screen">
+            <h2>OOPS...</h2>
+            <h2>SORRY, YOUR OUT OF TIME!</h2>
+             <img id="test" src="img/hb_03.png">
+             <img id="triangle" src="img/triangle6.png">
+        </div>
+    </script>
+
+    <script type="text/template" id="welldone-template">
+        <div id="content">
+            <h2>WELL DONE</h2>
+            <h2>YOU MADE IT!</h2>
+            <button id="show-offer">Go To Offers</button>
+        </div>
+             <img id="test" src="img/hb_03.png">
+             <img id="triangle" src="img/triangle6.png">
+        
+    </script>
+
+    <script type="text/template" id="offers-template">
+    <div id="new-offer">
+        <img  id="burger-king-offer" src="img/burgerking.png"/>
+    </div>
+        <div id="pointer"></div>    
+        <img id="test" src="img/hb_03.png">
+        <img id="triangle" src="img/triangle6.png">
+
+    </script>
+
+     <script type="text/template" id="news-template">
+        <div id="pointer"></div>
+
+        <div id="scroll">
+        <div id="wrapper">
+            <div class="news-article">
+                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <div class="text-box">
+                    <h3>JAMAICA MONTH - ALL FEBURARY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <div class="text-box">
+                    <h3>MEXICAN MONTH - JULY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+
+                <img class="news-pic" src="img/decfest.jpg"/>
+                <div class="text-box">
+                    <h3>DECADES FESTIVAL - AUGUST</h3>
+                    <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
+                </div>
+
+            </div>
+            <div class="news-article">
+                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <div class="text-box">
+                    <h3>JAMAICA MONTH - ALL FEBURARY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <div class="text-box">
+                    <h3>MEXICAN MONTH - JULY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+
+                <img class="news-pic" src="img/decfest.jpg"/>
+                <div class="text-box">
+                    <h3>DECADES FESTIVAL - AUGUST</h3>
+                    <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
+                </div>
+
+            </div>
+           </div>
+        </div>    
+        
+        
+
+    </script>
+
+    <script type="text/template" id="events-template">
+        <div id="pointer"></div>
+
+        <div id="scroll">
+        <div id="wrapper">
+            <div class="news-article">
+                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <div class="text-box">
+                    <h3>JAMAICA MONTH - ALL FEBURARY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <div class="text-box">
+                    <h3>MEXICAN MONTH - JULY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+
+                <img class="news-pic" src="img/decfest.jpg"/>
+                <div class="text-box">
+                    <h3>DECADES FESTIVAL - AUGUST</h3>
+                    <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
+                </div>
+
+            </div>
+            <div class="news-article">
+                <img class="news-pic" src="img/JamaicaMonthSoberLane.jpg"/>
+                <div class="text-box">
+                    <h3>JAMAICA MONTH - ALL FEBURARY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+                <img class="news-pic" src="img/Mexican-Month.jpg"/>
+                <div class="text-box">
+                    <h3>MEXICAN MONTH - JULY</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus sem, auctor non orci vitae... </p>
+                </div>
+            </div>
+            <div class="news-article">
+
+                <img class="news-pic" src="img/decfest.jpg"/>
+                <div class="text-box">
+                    <h3>DECADES FESTIVAL - AUGUST</h3>
+                    <p>The Decades Festival is a unique festival taking place in pubs around Cork city and suburbs. Each venue chooses... </p>
+                </div>
+
+            </div>
+           </div>
+        </div>    
+        
+        
+
+    </script>
+	
+	<script type="text/javascript">
+        
+        var app = {};
+        var save_offer = false;
+        
+        
+		app.AppView = Backbone.View.extend({
+    		initialize: function(){                
+    	    this.render();	
+             $(".draggable").bind("touchmove touchend", moveMe);	
+    		},
+    		render: function(){
+    			var template = _.template($('#splash-screen').html(),{});
+    			    this.$el.html(template)
+               
+    		},
+            events: {
+                "touchstart #hb2" : "goToOffers"
+            },
+            goToOffers: function(){
+                var wifiOffer = new app.WifiOffer({el:$('#app')});
+                clearInterval(ringInterval);
+                
+            }
+
+    	});
+        
+        var found;
+        app.WifiOffer = Backbone.View.extend({
+            initialize: function(){
+            this.render();
+            this.afterRender();
+            this.findWifi2();
+                           
+            },
+            render: function(){
+                var template = _.template($('#my-offers').html(),{});
+                this.$el.html(template)
+                found = false;
+                 
+            },
+            afterRender: function(){
+                $('#burger-king').toggleClass('zoom')
+                $('#timer').toggleClass('start');
+                $('#pointer').css({'border-bottom':'7px solid #003399'});
+                $('#offer-message').css({'display':'block'});
+
+                $("#burger-king").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+                    $('#timer-container').css({'display':'block'});
+                    $('#timer').toggleClass('start');
+                    $('#hurry').css({'display':'block'})
+                    $('#pointer').css({'border-bottom':'7px solid #A00707'});
+                 });                              
+                
+                $("#timer").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){     
+
+                  
+                   var destructView = new app.DestructView({el:$('#app')});
+                  
+
+                 });
+                
+            },
+            findSober: function(){
+                 searchInterval = window.setInterval(function(){ 
+                 
+                    findWifi2();
+
+
+               }, 2000);
+
+            },
+            findWifi2: function(){
+                searchInterval = window.setInterval(function(){
+                     window.plugins.WifiInfo.get(function(wifis){ 
+            for(i=0;i<wifis.available.length; i++){
+                 p = wifis.available[i].BSSID;
+            
+            if(p === sober_wifi){
+             successView = new app.SuccessView({el:$('#app')});
+              clearInterval(searchInterval);
+            }   
+      }
+         });
+                     }, 2000);
+            }
+                      
+
+        });
+
+        app.DestructView = Backbone.View.extend({
+            initialize: function(){
+                this.render();
+            },
+            render: function(){
+                var template = _.template($('#timeout-template').html(),{});
+                this.$el.html(template)
+                
+            },
+            events: {
+                "touchstart #test" : "goHome"
+            },
+            goHome: function(){
+                var appview2 = new app.AppView({el:$('#app')});
+            }
+        });
+
+        app.SuccessView = Backbone.View.extend({
+            initialize: function(){
+                this.render();
+            },
+            render: function(){
+                var template = _.template($('#welldone-template').html(),{});
+                this.$el.html(template)
+                save_offer = true;
+            },
+            events: {
+                "touchstart #show-offer" : "viewOffer"
+            },
+            viewOffer: function(){
+                var offerview2 = new app.OfferView({el:$('#app')});
+            }
+        });
+
+        app.OfferView = Backbone.View.extend({
+            initialize: function(){
+            this.render();
+            this.saveOffer();      
+            },
+            render: function(){
+                var template = _.template($('#offers-template').html(),{});
+                this.$el.html(template)
+                $('#pointer').css({'left':'35%'});
+            },
+            saveOffer: function(){
+                if(save_offer == true){
+                    $('#new-offer').css({'display':'block'})
+                }
+            }
+            
+
+        });
+
+         app.NewsView = Backbone.View.extend({
+            initialize: function(){
+            this.render();
+            this.loaded();      
+            },
+            render: function(){
+                var template = _.template($('#news-template').html(),{});
+                this.$el.html(template)
+                $('#pointer').css({'left':'60%'}); 
+                           
+                             
+                
+            },
+            loaded: function(){
+                var myScroll = new IScroll('#scroll');
+            }
+        
+            
+
+        });
+
+          app.EventsView = Backbone.View.extend({
+            initialize: function(){
+            this.render();
+            this.loaded();      
+            },
+            render: function(){
+                var template = _.template($('#events-template').html(),{});
+                this.$el.html(template)
+                $('#pointer').css({'left':'85%'}); 
+                           
+                             
+                
+            },
+            loaded: function(){
+                var myScroll = new IScroll('#scroll');
+            }
+        
+            
+
+        });
+
+        var Router = Backbone.Router.extend({
+    routes : {
+        "home" : "home",
+        "offers" : "offers"
+    },
+    home : function() {
+        this.loadView(new AppView());
+    },
+    offers : function() {
+        this.loadView(new OfferView());
+    },
+    loadView : function(view) {
+        this.view && this.view.remove();
+        this.view = view;
+    }
+});
+
+var router = new Router();
+Backbone.history.start();
+
+    	var appView = new app.AppView({el:$('#app')});
+
+    	
+	</script>
+ 	
+
+</body> 
+</html>
